@@ -37,7 +37,7 @@ const ContactUs=()=>{
           <div className="contact-bg">
             <div className="section-title center-align text-center mb-50">
               <h2>
-                Custom Inqure Form
+                Contact Via Email
               </h2>
             </div>
             <form action="https://htmldemo.zcubethemes.com/dcfarm/mail.php" method="post" className="contact-form mt-30 text-center">

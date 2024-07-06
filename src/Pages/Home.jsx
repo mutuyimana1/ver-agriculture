@@ -96,7 +96,7 @@ const Home = (() => {
                 <div className="col-xl-5 col-lg-5">
                   <form name="ajax-form" id="contact-form4" action="#" method="post" className="contact-form newslater wow fadeInDown  animated" data-animation="fadeInDown" data-delay=".4s">
                     <div className="form-group p-relative">
-                      <input className="form-control" id="email2" name="email" type="email" placeholder="Email Address..." defaultValue required />
+                      <input className="form-control" id="email2" name="email" type="email" placeholder="Email Address..."  required />
                       <button type="submit" className="btn btn-custom" id="send2">Subscribe Now</button>
                     </div>
                   </form>
