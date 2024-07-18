@@ -187,19 +187,6 @@ button:focus,input:focus,input:focus,textarea,textarea:focus{outline: none;box-s
 .capitalize {
 	text-transform: capitalize;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6{
-    
-	color: #141b22;
-	margin-top: 0px;
-	font-style: normal;
-	font-weight: 600;
-	text-transform: normal;
-}
 p,span,a {
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
@@ -211,25 +198,6 @@ h4 a,
 h5 a,
 h6 a {
 	color: inherit;
-}
-h1 {
-	font-size: 40px;
-	font-weight: 700;
-}
-h2 {
-	font-size: 35px;
-}
-h3 {
-	font-size: 28px;
-}
-h4 {
-	font-size: 22px;
-}
-h5 {
-	font-size: 18px;
-}
-h6 {
-	font-size: 16px;
 }
 ul {
 	margin: 0px;
@@ -302,7 +270,7 @@ label {
 
 .btn {
 	border-radius: 8px;
-    color: #141831;
+    color: white;
 	display: inline-block;
 	font-size: 16px;
 	letter-spacing: 0;
@@ -318,8 +286,8 @@ label {
 	position: relative;
     z-index: 1;
     text-transform: capitalize;
-   background: #fdcc0d;
-    border: 1px solid #fdcc0d;
+   background: #006e2f;
+    border: 1px solid #006e2f;
     overflow: hidden;
 }
 
@@ -333,7 +301,7 @@ label {
   position: absolute;
   border-radius: 50%;
   content: "";
-  background: #006e2f;
+  background: #fdcc0d;
   top: -60PX;
   left: 10px;
   z-index: -1;    
@@ -345,14 +313,14 @@ height: 100%;
 position: absolute;
 border-radius: 4px;
 content: "";
-background: #006e2f;
+background: #fdcc0d;
 top: 0;
 left: 0;
 z-index: -1;
 }
 .btn:hover{
     color: #fff;
-    border-color: #006e2f;
+    border-color: #fdcc0d;
 }
 
 
@@ -820,9 +788,10 @@ transform: skew(30deg);
 .second-menu .main-menu ul li:first-child{margin-left: 0;}
 .second-menu .main-menu ul li a::before{content: none;}
 .second-header-btn .btn {
-background: #fdcc0d;
+/* background: #fdcc0d; */
+background: #006e2f;
 font-size: 16px;
-color: #000;
+color: #fdcc0d;
 padding: 20px 25px;
 position: relative;
 border-radius: 50px;
@@ -830,7 +799,8 @@ text-transform: capitalize;
 }
 .second-header-btn .btn:hover {
 color: #fff;
-background: #087462;
+background: #fdcc0d;
+/* background: #087462; */
 }
 
 .img-main {
@@ -2206,9 +2176,6 @@ transition: all 0.3s ease-out 0s;
 }
 .services-box a:hover{
     color: #006e2f;
-}
-.service-details-three{
-    margin-top: -230px;
 }
 .service-details-three .services-box {
 

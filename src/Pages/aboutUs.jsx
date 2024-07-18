@@ -1,6 +1,7 @@
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import OurSteps from "../components/OurSteps"
+import Partners from "../components/Partners"
 
 const AboutUs = (() => {
   return (
@@ -276,62 +277,7 @@ const AboutUs = (() => {
         <OurSteps/>
         {/* steps-area-end */}
         {/* brand-area */}
-        <div className="brand-area pb-120">
-          <div className="container">
-            <div className="row brand-active">
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo1.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo2.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo3.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo4.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo5.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo1.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo2.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo3.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo4.png" alt="img" />
-                </div>
-              </div>
-              <div className="col-xl-2">
-                <div className="single-brand">
-                  <img src="../assets/img/brand/b-logo5.png" alt="img" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Partners/>
         {/* brand-area-end */}
         <Footer/>
       </main>

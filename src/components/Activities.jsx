@@ -1,26 +1,101 @@
+import { useEffect, useState } from "react";
 import { ActivitiesData } from "../assets/Data/Activities"
+import { Avatar, Card, Skeleton, Switch } from 'antd';
+import { Base_url } from "../Services/Constants";
+const { Meta } = Card;
 const Activities = () => {
+    const [achievementsData, setAchievementData] = useState(null);
+  const [isFetching, setIsFetching] = useState(true);
+  
+  async function fetchData() {
+    try {
+      setIsFetching(true)
+      const response = await fetch('/api/items/achivements?fields=*.*');
+      console.log("responses",response)
+      if (!response.ok) {
+        setIsFetching(false)
+        throw new Error('Network response was not ok');
+      }else{
+        setIsFetching(false)
+        const data = await response.json();
+        console.log(data, "data");
+        return data.data; 
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    }
+  }
+
+  useEffect(() => {
+    fetchData().then(data => {
+      setAchievementData(data);
+    });
+  }, []);
+
+  console.log("achievementsData", achievementsData);
     return (
         <>
+        {isFetching? <div className="flex gap-5">
+            <Card
+        style={{
+          width: 300,
+          marginTop: 16,
+        }}
+        loading={isFetching}
+      >
+        <Meta
+          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
+          title="Card title"
+          description="This is the description"
+        />
+      </Card>
+            <Card
+        style={{
+          width: 300,
+          marginTop: 16,
+        }}
+        loading={isFetching}
+      >
+        <Meta
+          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
+          title="Card title"
+          description="This is the description"
+        />
+      </Card>
+            <Card
+        style={{
+          width: 300,
+          marginTop: 16,
+        }}
+        loading={isFetching}
+      >
+        <Meta
+          avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=1" />}
+          title="Card title"
+          description="This is the description"
+        />
+      </Card>
+      </div> :
             <div className="row align-items-center justify-content-center">
-                {ActivitiesData?.map((el) => {
+                {achievementsData?.slice(0, 3)?.map((el) => {
                     return (
-                        <div className="col-lg-4">
+                        <div className="col-lg-4" key={el?.id}>
                             <div className="services-box-05 mb-30 hover-zoomin wow fadeInUp  animated" data-animation="fadeInUp" data-delay=".4s">
-                                <div className="services-icon-05">
-                                    <a href="single-service.html"><img src={el?.img} alt="icon01" /></a>
+                                <div className="services-icon-05 w-full h-[12rem] overflow-hidden">
+                                    <img src={`${Base_url}/assets/${el?.image?.id}`} alt="icon01" className="h-full w-full"/>
                                 </div>
-                                <div className="services-content-05">
+                                <div className="services-content-05 w-full h-[20rem]">
                                     <div className="icon">
-                                        <h4> <a href="single-service.html"></a> {el?.title}</h4>
+                                        <h4> {el.title}</h4>
                                     </div>
-                                    <p>{el?.discriptions}</p>
+                                    <p className="pb-2">{el?.descriptions?.length > 400 ? `${el.descriptions.substring(0, 400)}.` : el.descriptions}</p>
                                 </div>
                             </div>
                         </div>
                     )
                 })}
-            </div>
+            </div>}
         </>
     )
 }

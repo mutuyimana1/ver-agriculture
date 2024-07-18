@@ -6,6 +6,8 @@ import AboutUs from "../Pages/aboutUs"
 import ContactUs from "../Pages/ContactUs"
 import Projects from "../Pages/Projects"
 import Gallery from "../Pages/Gallery"
+import ProjectDetail from "../Pages/ProjectDetails"
+import News from "../Pages/News"
 
 const Index = (() => {
     return (
@@ -17,6 +19,8 @@ const Index = (() => {
                     <Route path="/contact" element={<ContactUs />} />
                     <Route path="/project" element={<Projects />} />
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/project/details/:projectId" element={<ProjectDetail />} />
+                    <Route path="/news" element={<News />} />
                 </Routes>
             </Router>
         </>

@@ -20,9 +20,9 @@ const Footer =()=>{
                       <p>Addressing soil erosion, destruction of agricultural land and deforestation, forest management.</p>
                     </div>
                     <div className="footer-social mt-10">
-                      <a href="#"><i className="fab fa-facebook-f" /></a>
-                      <a href="#"><i className="fab fa-instagram" /></a>
-                      <a href="#"><i className="fab fa-twitter" /></a>
+                      <Link toef="#"><i className="fab fa-facebook-f" /></Link>
+                      <Link to="#"><i className="fab fa-instagram" /></Link>
+                      <Link to="#"><i className="fab fa-twitter" /></Link>
                     </div>
                   </div>
                 </div>
@@ -33,11 +33,11 @@ const Footer =()=>{
                     </div>
                     <div className="footer-link">
                       <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about"> About</a></li>
-                        <li><a href="/services"> Services </a></li>
-                        <li><a href="/contact"> Contact Us</a></li>
-                        <li><a href="/blog">Blog </a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/about"> About</Link></li>
+                        <li><Link to="/project"> Projects </Link></li>
+                        <li><Link to="/contact"> Contact Us</Link></li>
+                        <li><Link to="/gallery">Gallery </Link></li>
                       </ul>
                     </div>
                   </div>
@@ -51,11 +51,11 @@ const Footer =()=>{
                       <ul>
                         <li>
                           <i className="icon fal fa-phone" />
-                          <span><a href="tel:+14440008888">+250-788-704-505</a></span>
+                          <span><Link to="tel:+14440008888">+250-788-704-505</Link></span>
                         </li>
                         <li><i className="icon fal fa-envelope" />
                           <span>
-                            <a href="mailto:info@example.com">info@verrwanda.org</a>
+                            <Link to="mailto:info@example.com">info@verrwanda.org</Link>
                           </span>
                         </li>
                         <li>
@@ -75,12 +75,12 @@ const Footer =()=>{
                       <ul>
                         <li>
                           <div className="thum"> <img src="../assets/img/blog/s-blogimg-01.png" alt="img" /></div>
-                          <div className="text"> <a href="#">Nothing impossble to need hard work</a>
+                          <div className="text"> <Link to="#">Nothing impossble to need hard work</Link>
                             <span>7 March, 2020</span></div>
                         </li>
                         <li>
                           <div className="thum"> <img src="../assets/img/blog/s-blogimg-02.png" alt="img" /></div>
-                          <div className="text"> <a href="#">Nothing impossble to need hard work</a>
+                          <div className="text"> <Link to="#">Nothing impossble to need hard work</Link>
                             <span>7 March, 2020</span></div>
                         </li>
                       </ul>
@@ -98,9 +98,9 @@ const Footer =()=>{
                 </div>
                 <div className="col-lg-6 text-right text-xl-right">
                   <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms Of Service</a></li>
-                    <li><a href="#">Legal</a></li>
+                    <li><Link to="#">Privacy Policy</Link></li>
+                    <li><Link to="#">Terms Of Service</Link></li>
+                    <li><Link to="#">Legal</Link></li>
                   </ul>
                 </div>
               </div>

@@ -6,12 +6,12 @@ export  const ActivitiesData = [
     },
     {
         "title": "Community Development",
-        "discriptions": "Increase the Capacity of community in adaptation and improvement of resilience by training and workshop",
+        "discriptions": "Increase the Capacity of community in adaptation and improvement of resilience by training and workshop and improvement",
         "img": "../assets/img/bg/services-08.jpg"
     },
     {
         "title": "Updating database ",
-        "discriptions": "Updating database about the LAFREC project beneficiaries’ and livestock provided for to know where to increase the effort and maximize the natural resources conservation.",
+        "discriptions": "Updating database about the LAFREC project beneficiaries’ and livestock provided for to know where to increase the effort ",
         "img": "../assets/img/bg/services-10.jpg"
     },
 ]
@@ -83,14 +83,6 @@ export  const ProjectsErosionData = [
         "date":" 24th March 2023",
         "createdBy":"Adm",
         "comments":"3"
-    },
-    {
-        "title": "Seas accumsan nulla nec lacus ultricies placerat. ",
-        "discriptions": "Curabitur sagittis libero tincidunt tempor finibus. Mauris at dignissim ligula, nec tristique orci.",
-        "img": "../assets/img/blog/blog9.jpg",
-        "date":" 24th March 2023",
-        "createdBy":"Adm",
-        "comments":"1"
     },
 ]
 
