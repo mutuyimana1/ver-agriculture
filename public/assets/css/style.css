@@ -6459,7 +6459,7 @@ display: none;
 .main-menu .has-sub > ul {
 visibility:hidden;
 position: absolute;
-background-color: #ffff;
+/* background-color: #ffff; */
 min-width: 250px;
 z-index: 1;
 transition: all 0.3s ease-in-out;

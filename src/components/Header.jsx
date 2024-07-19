@@ -4,10 +4,12 @@ import { Link } from "react-router-dom"
 import Logo from "../assets/images/logo.png"
 import BassicModal from "./Modal/Modal";
 import LoginForm from "./Forms/LoginForm";
+import { RiMenuLine } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
 const Header = (() => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+const [openTopNav,setOpenTopNav]=useState(false)
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -27,15 +29,15 @@ const Header = (() => {
           <div className="container">
             <div className="second-menu">
               <div className="row align-items-center">
-                <div className="col-xl-3 col-lg-3 -mt-4 flex gap-4">
+                <div className="col-xl-3 col-lg-3 -mt-4 flex justify-between items-center lg:gap-4">
                   <div className="logo w-10 h-10">
                     <Link to="/" className="w-full h-full"><img src={Logo} alt="logo" /></Link>
                   </div>
                   <h1 className="font-bold pt-8 text-xl">Vie et Environment <span className="block text-base">Rwanda</span></h1>
-                  
+                 {openTopNav? <IoClose size={32} onClick={()=>setOpenTopNav(false)} className="lg:hidden"/>:<RiMenuLine size={32} onClick={()=>setOpenTopNav(true)} className="lg:hidden"/> } 
                 </div>
                 <div className="col-xl-6 col-lg-6">
-                  <div className="main-menu text-right text-xl-right">
+                  <div className={`main-menu text-right text-xl-right ${openTopNav?"":"hidden lg:block"} `}>
                     <nav id="mobile-menu">
                       <ul>
                         <li className="has-sub">
@@ -44,16 +46,16 @@ const Header = (() => {
                         <li><Link to="/about">About Us</Link></li>
                         <li className="has-sub">
                           <Link to="#">Pages</Link>
-                          <ul>
-                            <li><Link to="/gallery">Gallery</Link></li>
-                            <li><Link to="/news">News</Link></li>
+                          <ul className="bg-[#085719]">
+                            <li><Link to="/gallery" className="text-white lg:text-black">Gallery</Link></li>
+                            <li><Link to="/news" className="text-white lg:text-black">News</Link></li>
                           </ul>
                         </li>
                         <li className="has-sub">
                           <Link to="/project">Projects</Link>
                         </li>
                         <li><Link to="/contact">Contact Us</Link></li>
-                        <li onClick={showModal}><Link>Login</Link></li>
+                        {/* <li onClick={showModal}><Link>Login</Link></li> */}
                       </ul>
                     </nav>
                   </div>

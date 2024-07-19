@@ -87,7 +87,7 @@ background-position: 0 -100px;
 }
 .main-menu ul li:first-child{margin-left: 0;}
 .header-social.display-ib {
-	display: none;
+	display: block;
 }
 .wp-img {
 	margin-right: 0;
@@ -792,8 +792,18 @@ border: 1px solid #000;
 
     bottom: -150px;
 }
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
     #mobile-menu {
-    background: #002e5b;
+    background: #085719 !important;
+    color: black;
+    animation: fadeIn 0.8s ease-in-out;
 }
     .header-cta ul li {
     display: inline-block;
@@ -917,12 +927,16 @@ border: 1px solid #000;
     color: #002e5b;
     font-size: 25px;
 }
-#mobile-menu {
+.main-menu .has-sub > ul {
+    background-color: transparent !important;
+}
+/* #mobile-menu {
 	display: none;
 	padding: 20px;
-}
+} */
 .main-menu {
 	text-align: left !important;
+    margin-top: 32px;
 }
 .main-menu ul li {
 	display: block;
@@ -937,8 +951,8 @@ border: 1px solid #000;
 	color: #fff;
 	padding: 12px 20px;
 	display: block;
-	font-size: 14px;
-	       font-family: 'PT Serif', serif;
+	font-size: 24px;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 }
 .second-menu {
@@ -957,7 +971,6 @@ border: 1px solid #000;
 .second-menu .main-menu ul li {
 	margin-left: 0;
 }
-
 .s-about-img img {
 	width: 100%;
     margin: 0;
@@ -2132,6 +2145,9 @@ padding-left: 0;
     .call-area .number {
     font-size: 36px;
 }
+/* .header .second-menu{
+    background-color: #085719;
+} */
     .testimonial-active2 .single-testimonial p{
         width: 100%;
         font-size: 20px;
@@ -2156,6 +2172,7 @@ padding-left: 0;
     .container-fluid.pt-30.pb-30.pl-50.pr-50 {
     padding-left: 0;
     padding-right: 0;
+    background-color: #085719;
 }
 	.slider-price {
     display: none;
@@ -2279,7 +2296,7 @@ padding-left: 0;
 	}
 	
 .main-menu .has-sub > ul {
-    display: none;
+    display: block;
     position: relative;
     float: left;
     width: 100%;
@@ -2290,13 +2307,13 @@ padding-left: 0;
     border-top:1px solid #f7f7f7;
 }
 .main-menu .has-sub > ul > .has-sub > ul {
-    display: none;
+    display: block;
     position: relative;
     float: left;
     width: 100%;
     margin-bottom: 10px;
 	margin-left:0;
-	margin-top:0;	
+	margin-top:2px;	
 	padding-left:15px;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0);
 	border-top:1px solid #f7f7f7;
@@ -2306,7 +2323,7 @@ padding-left: 0;
 	border-bottom:none;
 }
 .main-menu .has-sub > ul > .has-sub > ul > .has-sub > ul {
-    display: none;
+    /* display: none; */
     position: relative;
     float: left;
     width: 100%;
@@ -2479,19 +2496,27 @@ border-bottom: none;
     font-size: 25px;
 }
 #mobile-menu {
-display: none;
+/* display: block; */
 background: no-repeat;
 padding: 20px 0;
 margin-top: 21px;
-background: #002e5b;
+/* background: #002e5b; */
+animation: fadeIn 0.8s ease-in-out;
 }
 .main-menu {
 	text-align: left !important;
+    background-color: #085719;
+    border-radius: 20px !important;
+    animation: fadeIn 0.8s ease-in-out;
+    
 }
 .main-menu ul li {
 	display: block;
+    border-radius: 20px !important;
 	border-bottom: 1px solid #ffffff3d;
+    margin-top: 20px;
 	margin-left: 0;
+    animation: fadeIn 0.8s ease-in-out;
 }
 .button-group button{
 	margin: 0 4px;
@@ -2502,8 +2527,8 @@ background: #002e5b;
 	color: #fff;
 	padding: 12px 15px;
 	display: inline-block;
-	font-size: 14px;
-	       font-family: 'PT Serif', serif;
+	font-size: 24px;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 }
 .second-menu {
