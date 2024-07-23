@@ -139,30 +139,27 @@ const Home = (() => {
           {/* video-area-end */}
 
        <ProjectCategory setDetailedData={setDetailedData} setProjectsDetails={setProjectsDetails} data={detailedData}/>
-          <section className="bg-zinc-50 overflow-hidden py-5" style={{ background: 'url(../assets/img/bg/services-bg.png)', backgroundRepeat: 'no-repeat' }}>
-            <div className="col-lg-12">
-              <div className="section-title center-align mb-50 text-center wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
-                <h5>Gallery</h5>
+       <div className="secstion-title bg-[#fdcd0d1a] center-align mbd-50 text-center wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
+                <h1 className="text-xl pt-3">Gallery</h1>
               </div>
-            </div>
-            <div className="w-full px-8 md:pxs-12 mx-auto  h-[50vh] flex flex-col justify-center flex-wrap pb-5">
-
-              <div className="flex flex-col sm:flex-row mx-auto ">
-                {/*- Starts component */}
-                {GalleryData?.map((el) => {
+       <section className="bg-[#fdcd0d1a] overflow-hidden">
+       <div className="section-title  center-align mb-50 text-center wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
+                
+              </div>
+  <div className="max-w-screen-xl  2xl:max-w-screen-3xl flex flex-col justify-center">
+    <div className="flex flex-col sm:flex-row mx-20 my-12">
+    {GalleryData?.map((el) => {
                   return (
-                    // <a href="#_">
-                      <img src={el?.img} className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_" /> 
+                      <img src={el?.img} className="rounded-xl rotate-6 pb-5 pt-[10rem] hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-64 object-cover hover:scale-150 transform origin-bottom" alt="#_" /> 
                   )
                 })}
-
-                {/*- Ends component */}
-              </div>
-            <div className="second-header-btn mt-10 ml-[85%]">
-              <Link to={"/gallery"} className="btn">View More</Link>
-            </div>
-            </div>
-          </section>
+    </div> {/* Starts links to tutorial */}
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
+      <div className="pointer-events-auto flex w-full max-w-md divide-x divide-neutral-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+      </div>
+    </div> {/* Ends links to tutorial */}
+  </div>
+</section>
 
           {/* blog-area-end */}
           {/* brand-area */}

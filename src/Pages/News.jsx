@@ -8,6 +8,7 @@ import NewsDetails from "./NewsDetails";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import Partners from "../components/Partners";
 import DOMPurify from "dompurify";
+import aboutImageBg from "../assets/images/IMG-20221114-WA0010.jpg"
 const { Meta } = Card;
 const News = () => {
   const [newsData, setNewsData] = useState(null);
@@ -55,7 +56,7 @@ const News = () => {
         {/* breadcrumb-area */}
         <section
           className="breadcrumb-area d-flex  p-relative align-items-center"
-          style={{ backgroundImage: "url(../assets/img/bg/bdrc-bg.jpg)" }}
+          style={{ backgroundImage: `url(${aboutImageBg})`,backgroundPosition:"center" }}
         >
           <div className="container">
             <div className="row align-items-center">

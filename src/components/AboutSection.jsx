@@ -1,4 +1,5 @@
 
+import aboutImage from "../assets/images/IMG-20221114-WA0005.jpg"
 const AboutSection=()=>{
     return(
         <>
@@ -17,8 +18,8 @@ const AboutSection=()=>{
                   </div>
                 </div>
                 <div className="col-lg-7 col-md-12 col-sm-12">
-                  <div className="s-about-img p-relative  wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".4s">
-                    <img src="../assets/img/features/about_img_03.jpg" alt="img" className="w-full"/>
+                  <div className="s-about-img p-relative shadow-md wow fadeInLeft animated p-2 rounded-md" data-animation="fadeInLeft" data-delay=".4s">
+                    <img src={aboutImage} alt="img" className="w-full rounded-md"/>
                     {/* <div className="about-text second-about">
                       <img src="../assets/img/features/about-play.png" alt="img" />
                     </div> */}

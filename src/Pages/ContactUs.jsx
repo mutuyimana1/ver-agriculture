@@ -1,5 +1,6 @@
 import Footer from "../components/Footer"
 import Header from "../components/Header"
+import aboutImageBg from "../assets/images/IMG-20221114-WA0010.jpg"
 
 const ContactUs=()=>{
     return(
@@ -7,7 +8,7 @@ const ContactUs=()=>{
         <Header/>
         <main>
   {/* breadcrumb-area */}
-  <section className="breadcrumb-area d-flex  p-relative align-items-center" style={{backgroundImage: 'url(../assets/img/bg/bdrc-bg.jpg)'}}>
+  <section className="breadcrumb-area d-flex  p-relative align-items-center" style={{ backgroundImage: `url(${aboutImageBg})`,backgroundPosition:"center" }}>
     <div className="container">
       <div className="row align-items-center">
         <div className="col-xl-12 col-lg-12">

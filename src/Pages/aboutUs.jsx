@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import OurSteps from "../components/OurSteps";
 import Partners from "../components/Partners";
 import DOMPurify from "dompurify";
+import aboutImage from "../assets/images/IMG-20221114-WA0005.jpg"
+import aboutImageBg from "../assets/images/IMG-20221114-WA0010.jpg"
 import { Carousel } from 'antd';
 import "./style.css"
 const AboutUs = () => {
@@ -44,7 +46,7 @@ const AboutUs = () => {
         {/* breadcrumb-area */}
         <section
           className="breadcrumb-area d-flex  p-relative align-items-center"
-          style={{ backgroundImage: "url(../assets/img/bg/bdrc-bg.jpg)" }}
+          style={{ backgroundImage: `url(${aboutImageBg})`,backgroundPosition:"center" }}
         >
           <div className="container">
             <div className="row align-items-center">
@@ -117,20 +119,22 @@ const AboutUs = () => {
                   data-delay=".4s"
                 >
                   <img
-                    src="../assets/img/features/about_img_03.jpg"
+                    src={aboutImage}
                     alt="img"
+                    className="w-full"
                   />
-                  <div className="about-text second-about">
+                  {/* <div className="about-text second-about">
                     <img
                       src="../assets/img/features/about-play.png"
                       alt="img"
                     />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
           </div>
         </section>
+  
         {/* about-area-end */}
         {/* testimonial-area */}
         <section

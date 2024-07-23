@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Base_url } from "../Services/Constants";
+import DOMPurify from "dompurify";
 
 const ProjectCategory=(props)=>{
     const [projectData, setProjectsData] = useState(null);
@@ -140,6 +141,9 @@ const ProjectCategory=(props)=>{
       props?.setProjectsDetails(true); 
       console.log("AgricultureData from home", data);
     };
+    const createMarkup = (html) => {
+      return { __html: DOMPurify.sanitize(html) };
+    };
     return(
         <>
         <section id="portfolio" className="pt-120 pb-90">
@@ -192,7 +196,7 @@ const ProjectCategory=(props)=>{
                                 </div>
                               </div>
                               <h4> {el?.title?.length > 30 ? `${el.title.substring(0, 20)}...` : el.title}</h4>
-                              <p>{el?.descriptions?.length > 100 ? `${el.descriptions.substring(0, 100)}...` : el.descriptions}</p>
+                              {el?.descriptions?.length > 100? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 100))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
                               <div className="blog-btn"><a href="#">Read More <i className="fal fa-long-arrow-right" /></a></div>
                             </div>
                           </div>
@@ -223,7 +227,7 @@ const ProjectCategory=(props)=>{
                                 </div>
                               </div>
                               <h4> {el?.title?.length > 30 ? `${el.title.substring(0, 20)}...` : el.title}</h4>
-                              <p>{el?.descriptions?.length > 100 ? `${el.descriptions.substring(0, 100)}...` : el.descriptions}</p>
+                              {el?.descriptions?.length > 100? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 100))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
                               <div className="blog-btn"><a href="#">Read More <i className="fal fa-long-arrow-right" /></a></div>
                             </div>
                           </div>
@@ -254,7 +258,7 @@ const ProjectCategory=(props)=>{
                                 </div>
                               </div>
                               <h4> {el?.title?.length > 30 ? `${el.title.substring(0, 20)}...` : el.title}</h4>
-                              <p>{el?.descriptions?.length > 100 ? `${el.descriptions.substring(0, 100)}...` : el.descriptions}</p>
+                              {el?.descriptions?.length > 100? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 100))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
                               <div className="blog-btn"><a href="#">Read More <i className="fal fa-long-arrow-right" /></a></div>
                             </div>
                           </div>
@@ -285,7 +289,7 @@ const ProjectCategory=(props)=>{
                                 </div>
                               </div>
                               <h4> {el?.title?.length > 30 ? `${el.title.substring(0, 20)}...` : el.title}</h4>
-                              <p>{el?.descriptions?.length > 100 ? `${el.descriptions.substring(0, 100)}...` : el.descriptions}</p>
+                              {el?.descriptions?.length > 100? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 100))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
                               <div className="blog-btn"><a href="#">Read More <i className="fal fa-long-arrow-right" /></a></div>
                             </div>
                           </div>
@@ -317,7 +321,7 @@ const ProjectCategory=(props)=>{
                                 </div>
                               </div>
                               <h4> {el?.title?.length > 30 ? `${el.title.substring(0, 20)}...` : el.title}</h4>
-                              <p>{el?.descriptions?.length > 100 ? `${el.descriptions.substring(0, 100)}...` : el.descriptions}</p>
+                              {el?.descriptions?.length > 100? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 100))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
                               <div className="blog-btn"><a href="#">Read More <i className="fal fa-long-arrow-right" /></a></div>
                             </div>
                           </div>

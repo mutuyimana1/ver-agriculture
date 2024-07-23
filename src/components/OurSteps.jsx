@@ -1,5 +1,6 @@
 
 import img from "../assets/images/pexels-photo-7457178.jpeg"
+import imgTwo from "../assets/images/IMG-20221114-WA0011.jpg"
 const OurSteps=()=>{
     return(
         <>
@@ -8,7 +9,7 @@ const OurSteps=()=>{
               <div className="row align-items-center">
                 <div className="col-lg-4 col-md-12">
                   <div className="wow fadeInLeft animated border-4 border-yellow-500  w-[30rem] border-l-yellow-500 relative p-1 rounded-xl" data-animation="fadeInLeft" data-delay=".4s">
-                    <img src={img} alt="class image" className="h-[30rem] w-[30rem] rounded-xl relative left-3 top-5"/>
+                    <img src={imgTwo} alt="class image" className="h-[30rem] w-[30rem] rounded-xl relative left-3 top-5"/>
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-12">

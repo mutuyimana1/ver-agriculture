@@ -37,7 +37,7 @@ const Gallery = () => {
   console.log("galleryData", galleryData);
   const displayedPhotos = showAllPhotos
     ? galleryData
-    : galleryData?.slice(0, 1);
+    : galleryData?.slice(0, 10);
   return (
     <div className="bg-yellow-50 ">
       <Header />
@@ -122,7 +122,7 @@ const Gallery = () => {
             })}
           </div>
         )}
-        {galleryData?.length > 0 && !showAllPhotos && (
+        {galleryData?.length > 10 && !showAllPhotos && (
           <button
             onClick={() => setShowAllPhotos(true)}
             className="mt-4  px-4 py-2 bg-green-500 text-white rounded hover:bg-yellow-700 transition duration-300"

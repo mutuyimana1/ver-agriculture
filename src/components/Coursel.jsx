@@ -3,9 +3,9 @@ import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LazyLoadCarouselItem from "./LazyLoadCarouselItem";
 import "./header.css";
-import imageOne from "../assets/images/pexels-photo-9518144.jpeg";
-import imageTwo from "../assets/images/pexels-photo-11670000.jpeg";
-import imageThree from "../assets/images/pexels-tomfisk-4220574.jpg";
+import imageOne from "../assets/images/IMG-20221114-WA0008.jpg";
+import imageTwo from "../assets/images/IMG-20221114-WA0012.jpg";
+import imageThree from "../assets/images/IMG-20221114-WA0014.jpg";
 import { Link } from "react-router-dom";
 function Coursel() {
   return (
