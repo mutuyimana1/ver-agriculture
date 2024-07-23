@@ -41,10 +41,10 @@ function Coursel() {
           <div className="row justify-content-center align-items-center pl-10 pts-5 h-[85vh]">
             <div className="col-lg-7 col-md-8">
               <div className="slider-content s-slider-content pt-[14rem]">
-                <h5 data-animation="fadeInUp" data-delay=".4s">
+                <h5 data-animation="fadeInUp bg-black/20 " data-delay=".4s">
                   During this project &amp;{" "}
                 </h5>
-                <h2 data-animation="fadeInUp" data-delay=".4s">
+                <h2 data-animation="fadeInUp bg-black/20 " data-delay=".4s">
                   115,935 seedlings have been <span> produced</span>
                 </h2>
                 <div className="second-header-btn flex">

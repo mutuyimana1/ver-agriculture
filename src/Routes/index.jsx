@@ -8,6 +8,7 @@ import Projects from "../Pages/Projects"
 import Gallery from "../Pages/Gallery"
 import ProjectDetail from "../Pages/ProjectDetails"
 import News from "../Pages/News"
+import NotFound from "../Pages/NotFound"
 
 const Index = (() => {
     return (
@@ -21,6 +22,7 @@ const Index = (() => {
                     <Route path="/gallery" element={<Gallery />} />
                     <Route path="/project/details/:projectId" element={<ProjectDetail />} />
                     <Route path="/news" element={<News />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>
         </>

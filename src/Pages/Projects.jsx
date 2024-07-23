@@ -7,6 +7,7 @@ import { Base_url } from "../Services/Constants";
 import ProjectDetail from "./ProjectDetails";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
 import Partners from "../components/Partners";
+import DOMPurify from "dompurify";
 const { Meta } = Card;
 const Projects = () => {
   const [projectData, setProjectsData] = useState(null);
@@ -45,6 +46,9 @@ const Projects = () => {
     });
   }, []);
 
+  const createMarkup = (html) => {
+    return { __html: DOMPurify.sanitize(html) };
+  };
   console.log("projectData from home", projectData);
   return (
     <>
@@ -196,11 +200,8 @@ const Projects = () => {
                                     ? `${el.title.substring(0, 20)}...`
                                     : el.title}
                                 </h4>
-                                <p>
-                                  {el?.descriptions?.length > 100
-                                    ? `${el.descriptions.substring(0, 100)}...`
-                                    : el.descriptions}
-                                </p>
+                                {el?.descriptions?.length > 100? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 100))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
+                                
                                 <div className="blog-btn">
                                   <a href="#">
                                     Read More{" "}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { ActivitiesData } from "../assets/Data/Activities"
 import { Avatar, Card, Skeleton, Switch } from 'antd';
 import { Base_url } from "../Services/Constants";
+import DOMPurify from "dompurify";
 const { Meta } = Card;
 const Activities = () => {
     const [achievementsData, setAchievementData] = useState(null);
@@ -32,7 +33,9 @@ const Activities = () => {
       setAchievementData(data);
     });
   }, []);
-
+  const createMarkup = (html) => {
+    return { __html: DOMPurify.sanitize(html) };
+  };
   console.log("achievementsData", achievementsData);
     return (
         <>
@@ -89,7 +92,8 @@ const Activities = () => {
                                     <div className="icon">
                                         <h4> {el.title}</h4>
                                     </div>
-                                    <p className="pb-2">{el?.descriptions?.length > 400 ? `${el.descriptions.substring(0, 400)}.` : el.descriptions}</p>
+                                    {el?.descriptions?.length > 400? <div dangerouslySetInnerHTML={createMarkup(el?.descriptions.substring(0, 400))}/>:<div dangerouslySetInnerHTML={createMarkup(el?.descriptions)}/>}
+                                    {/* <p className="pb-2">{el?.descriptions?.length > 400 ? `${el.descriptions.substring(0, 400)}.` : el.descriptions}</p> */}
                                 </div>
                             </div>
                         </div>

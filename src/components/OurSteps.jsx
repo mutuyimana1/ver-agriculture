@@ -14,8 +14,8 @@ const OurSteps=()=>{
                 <div className="col-lg-6 col-md-12">
                   <div className="pl-60">
                     <div className="section-title mb-50 wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
-                      <h5>Our Steps</h5>
-                      <h2>How We Work On Quality</h2>
+                      {/* <h5>Our Steps</h5> */}
+                      <h2>Operational spaces</h2>
                     </div>
                     <ul>
                       <li>
@@ -24,7 +24,7 @@ const OurSteps=()=>{
                             <div className="date-box"><img src="../assets/img/icon/fea-icon04.png" alt="icon" /></div>
                           </div>
                           <div className="text">
-                            <h3>Wind Solar Energy</h3>
+                            <h3>soil erosion</h3>
                             <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
                           </div>
                         </div>
@@ -35,7 +35,7 @@ const OurSteps=()=>{
                             <div className="date-box"><img src="../assets/img/icon/fea-icon05.png" alt="icon" /></div>
                           </div>
                           <div className="text">
-                            <h3>Forest Planting</h3>
+                            <h3>destruction of agricultural land and deforestation</h3>
                             <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
                           </div>
                         </div>
@@ -46,7 +46,7 @@ const OurSteps=()=>{
                             <div className="date-box"><img src="../assets/img/icon/fea-icon06.png" alt="icon" /></div>
                           </div>
                           <div className="text">
-                            <h3>Recycling Agriculture</h3>
+                            <h3>forest management</h3>
                             <p>Special wedding garments are often worn, and the ceremony is sttimes followed by a wedding reception. Music, poetry, prayers, or readings.</p>
                           </div>
                         </div>

@@ -15,13 +15,18 @@ import directus from "../Services/directus"
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import ProjectCategory from "../components/ProjectCategory"
 import Partners from "../components/Partners"
+import ProjectDetail from "./ProjectDetails"
+import { IoArrowBackCircleSharp } from "react-icons/io5"
 // ..
 AOS.init();
 const Home = (() => {
-
+  const [detailedData,setDetailedData]=useState(null);
+  const [projectDetails, setProjectsDetails] = useState(false);
+ console.log("projects details",projectDetails)
 
   return (
     <>
+   
       <div className="mainContainer">
 
         {/* Cursor */}
@@ -30,7 +35,8 @@ const Home = (() => {
         {/* header */}
         <Header />
         {/* header-end */}
-
+        {!projectDetails?
+        <>
         {/* main-area */}
         <main>
 
@@ -132,7 +138,7 @@ const Home = (() => {
           </section>
           {/* video-area-end */}
 
-       <ProjectCategory/>
+       <ProjectCategory setDetailedData={setDetailedData} setProjectsDetails={setProjectsDetails} data={detailedData}/>
           <section className="bg-zinc-50 overflow-hidden py-5" style={{ background: 'url(../assets/img/bg/services-bg.png)', backgroundRepeat: 'no-repeat' }}>
             <div className="col-lg-12">
               <div className="section-title center-align mb-50 text-center wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
@@ -145,8 +151,8 @@ const Home = (() => {
                 {/*- Starts component */}
                 {GalleryData?.map((el) => {
                   return (
-                    <a href="#_">
-                      <img src={el?.img} className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_" /> </a>
+                    // <a href="#_">
+                      <img src={el?.img} className="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_" /> 
                   )
                 })}
 
@@ -167,7 +173,41 @@ const Home = (() => {
         </main>
         {/* main-area-end */}
         {/* footer */}
-
+</>:<>
+<section
+          className="breadcrumb-area d-flex  p-relative align-items-center"
+          style={{ backgroundImage: "url(../assets/img/bg/bdrc-bg.jpg)" }}
+        >
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-xl-12 col-lg-12">
+                <div className="breadcrumb-wrap text-left">
+                  <div className="breadcrumb-title">
+                    <h2>Projects Details</h2>
+                    <div className="breadcrumb-wrap">
+                      <nav aria-label="breadcrumb">
+                        <ol className="breadcrumb">
+                          <li className="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                          </li>
+                          <li
+                            className="breadcrumb-item active"
+                            aria-current="page"
+                          >
+                            Projects
+                          </li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {projectDetails &&  <h1 className="flex text-lg gap-2 ml-3 mt-3 cursor-pointer" onClick={()=>setProjectsDetails(false)}><IoArrowBackCircleSharp size={32} color="green"/><span className="pt-1">Go Back</span> </h1>}
+<ProjectDetail data={detailedData}/>
+</>}
       </div>
       <Footer />
 

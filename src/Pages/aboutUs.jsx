@@ -1,15 +1,51 @@
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import OurSteps from "../components/OurSteps"
-import Partners from "../components/Partners"
+import { useEffect, useState } from "react";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import OurSteps from "../components/OurSteps";
+import Partners from "../components/Partners";
+import DOMPurify from "dompurify";
+import { Carousel } from 'antd';
+import "./style.css"
+const AboutUs = () => {
+  const [testimonialData, setTestimonialData] = useState(null);
+  const [isFetcing, setIsFetching] = useState(false);
+  async function fetchData() {
+    try {
+      setIsFetching(true);
+      const response = await fetch("/api/items/testimonial?fields=*.*");
+      console.log("responses", response);
+      if (!response.ok) {
+        setIsFetching(false);
+        throw new Error("Network response was not ok");
+      } else {
+        setIsFetching(false);
+        const data = await response.json();
+        console.log(data, "data");
+        return data.data;
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return null;
+    }
+  }
 
-const AboutUs = (() => {
+  useEffect(() => {
+    fetchData().then((data) => {
+      setTestimonialData(data);
+    });
+  }, []);
+  const createMarkup = (html) => {
+    return { __html: DOMPurify.sanitize(html) };
+  };
   return (
     <>
       <Header />
       <main>
         {/* breadcrumb-area */}
-        <section className="breadcrumb-area d-flex  p-relative align-items-center" style={{ backgroundImage: 'url(../assets/img/bg/bdrc-bg.jpg)' }}>
+        <section
+          className="breadcrumb-area d-flex  p-relative align-items-center"
+          style={{ backgroundImage: "url(../assets/img/bg/bdrc-bg.jpg)" }}
+        >
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xl-12 col-lg-12">
@@ -19,8 +55,15 @@ const AboutUs = (() => {
                     <div className="breadcrumb-wrap">
                       <nav aria-label="breadcrumb">
                         <ol className="breadcrumb">
-                          <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                          <li className="breadcrumb-item active" aria-current="page">About Us</li>
+                          <li className="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                          </li>
+                          <li
+                            className="breadcrumb-item active"
+                            aria-current="page"
+                          >
+                            About Us
+                          </li>
                         </ol>
                       </nav>
                     </div>
@@ -36,23 +79,52 @@ const AboutUs = (() => {
           <div className="container">
             <div className="row justify-content-center align-items-center">
               <div className="col-lg-5 col-md-12 col-sm-12">
-                <div className="about-content s-about-content  wow fadeInRight  animated" data-animation="fadeInRight" data-delay=".4s">
+                <div
+                  className="about-content s-about-content  wow fadeInRight  animated"
+                  data-animation="fadeInRight"
+                  data-delay=".4s"
+                >
                   <div className="about-title second-title pb-25">
                     <h5>About Us</h5>
-                    <h2>We  Provide Environmental Solution</h2>
+                    <h2>We Provide Environmental Solution</h2>
                   </div>
-                  <p>Many of the problems are associated with poor management of environment and natural resources. The DEMP II was thus, inspired by the fact that local communities are more motivated to protect and sustainably use natural resources if they are directly involved in the planning and decision making process.
-
+                  <p>
+                    Many of the problems are associated with poor management of
+                    environment and natural resources. The DEMP II was thus,
+                    inspired by the fact that local communities are more
+                    motivated to protect and sustainably use natural resources
+                    if they are directly involved in the planning and decision
+                    making process.
                   </p>
-                  <p>For local governments, strengthening environmental management capacity is important since environmental sustainability contributes to widening and increasing local revenue base, a key aspect of Rwanda’s decentralization process. The ecosystem restoration and protection is one of key priority for Environment and Natural Resources Sector in order to achieve EDPRS objective and Vision 2020 in Rwanda.
-                    It is in that regard DEMP II in collaboration with Rwamagana district implemented a project to rehabilitate Mugesera lakeshores </p>
+                  <p>
+                    For local governments, strengthening environmental
+                    management capacity is important since environmental
+                    sustainability contributes to widening and increasing local
+                    revenue base, a key aspect of Rwanda’s decentralization
+                    process. The ecosystem restoration and protection is one of
+                    key priority for Environment and Natural Resources Sector in
+                    order to achieve EDPRS objective and Vision 2020 in Rwanda.
+                    It is in that regard DEMP II in collaboration with Rwamagana
+                    district implemented a project to rehabilitate Mugesera
+                    lakeshores{" "}
+                  </p>
                 </div>
               </div>
               <div className="col-lg-7 col-md-12 col-sm-12">
-                <div className="s-about-img p-relative  wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".4s">
-                  <img src="../assets/img/features/about_img_03.jpg" alt="img" />
+                <div
+                  className="s-about-img p-relative  wow fadeInLeft animated"
+                  data-animation="fadeInLeft"
+                  data-delay=".4s"
+                >
+                  <img
+                    src="../assets/img/features/about_img_03.jpg"
+                    alt="img"
+                  />
                   <div className="about-text second-about">
-                    <img src="../assets/img/features/about-play.png" alt="img" />
+                    <img
+                      src="../assets/img/features/about-play.png"
+                      alt="img"
+                    />
                   </div>
                 </div>
               </div>
@@ -61,75 +133,60 @@ const AboutUs = (() => {
         </section>
         {/* about-area-end */}
         {/* testimonial-area */}
-        <section className="testimonial-area pt-5 pb-100 p-relative fix" style={{ background: 'url(../assets/img/bg/services-bg.png)', backgroundRepeat: 'no-repeat' }}>
+        <section
+          className="testimonial-area pt-5 pb-100 p-relative fix"
+          style={{
+            background: "url(../assets/img/bg/services-bg.png)",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <div className="section-title mb-50 wow fadeInDown animated text-center" data-animation="fadeInDown" data-delay=".4s">
-                  <h5>Our Testimonial</h5>
-                  <h2>
-                    What Our Clients Says
-                  </h2>
+                <div
+                  className="section-title mb-50 wow fadeInDown animated text-center"
+                  data-animation="fadeInDown"
+                  data-delay=".4s"
+                >
+                  <h5>Our Agricultural Community Speaks</h5>
                 </div>
               </div>
               <div className="col-lg-12">
                 <div className="testimonial-active grid grid-cols-4 gap-5">
-                  <div className="single-testimonial">
-                    <div className="testi-author">
-                      <img src="../assets/img/testimonial/testi_avatar.png" alt="img" />
-                      <div className="ta-info">
-                        <h6>Jina Nilson</h6>
-                        <span>Client</span>
-                      </div>
-                    </div>
-                    <p className="pt-2 pb-4"><img src="../assets/img/testimonial/review-icon.png" alt="img" /></p>
-                    <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-                    <div className="qt-img">
-                      <img src="../assets/img/testimonial/qt-icon.png" alt="img" />
-                    </div>
-                  </div>
-                  <div className="single-testimonial">
-                    <div className="testi-author">
-                      <img src="../assets/img/testimonial/testi_avatar_02.png" alt="img" />
-                      <div className="ta-info">
-                        <h6>Braitly Dcosta</h6>
-                        <span>Client</span>
-                      </div>
-                    </div>
-                    <p className="pt-2 pb-4"><img src="../assets/img/testimonial/review-icon.png" alt="img" /></p>
-                    <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-                    <div className="qt-img">
-                      <img src="../assets/img/testimonial/qt-icon.png" alt="img" />
-                    </div>
-                  </div>
-                  <div className="single-testimonial">
-                    <div className="testi-author">
-                      <img src="../assets/img/testimonial/testi_avatar.png" alt="img" />
-                      <div className="ta-info">
-                        <h6>Jina Nilson</h6>
-                        <span>Client</span>
-                      </div>
-                    </div>
-                    <p className="pt-2 pb-4"><img src="../assets/img/testimonial/review-icon.png" alt="img" /></p>
-                    <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-                    <div className="qt-img">
-                      <img src="../assets/img/testimonial/qt-icon.png" alt="img" />
-                    </div>
-                  </div>
-                  <div className="single-testimonial">
-                    <div className="testi-author">
-                      <img src="../assets/img/testimonial/testi_avatar_02.png" alt="img" />
-                      <div className="ta-info">
-                        <h6>Braitly Dcosta</h6>
-                        <span>Client</span>
-                      </div>
-                    </div>
-                    <p className="pt-2 pb-4"><img src="../assets/img/testimonial/review-icon.png" alt="img" /></p>
-                    <p>“Phasellus aliquam quis lorem amet dapibus feugiat vitae purus vitae efficitur. Vestibulum sed elit id orci rhoncus ultricies. Morbi vitae semper consequat ipsum semper quam”.</p>
-                    <div className="qt-img">
-                      <img src="../assets/img/testimonial/qt-icon.png" alt="img" />
-                    </div>
-                  </div>
+                  {testimonialData &&
+                    testimonialData?.map((el) => {
+                      return (
+                        <>
+                          <div className="single-testimonial">
+                            <div className="testi-author">
+                              <div className="w-full h-32 ">
+                                <img
+                                  src="../assets/img/testimonial/newUser.png"
+                                  alt="img"
+                                  className=""
+                                />
+                              </div>
+                              <div className="ta-info ">
+                                <cite className="text-black">
+                                  {el?.title?.length > 30
+                                    ? `${el.title.substring(0, 20)}...`
+                                    : el.title}
+                                </cite>
+                              </div>
+                            </div>
+                            {/* <cite  className="mt-5 text-black block"> */}
+                            {el?.description?.length > 100? <cite dangerouslySetInnerHTML={createMarkup(el?.description.substring(0, 100))}  className="mt-5 text-black block"/>:<cite dangerouslySetInnerHTML={createMarkup(el?.description)}  className="mt-5 text-black block"/>}
+                            {/* </cite> */}
+                            <div className="qt-img">
+                              <img
+                                src="../assets/img/testimonial/qt-icon.png"
+                                alt="img"
+                              />
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })}
                 </div>
               </div>
             </div>
@@ -137,24 +194,51 @@ const AboutUs = (() => {
         </section>
         {/* testimonial-area-end */}
         {/* newslater-area */}
-        <section className="newslater-area pt-120 pb-200" style={{ background: 'url(../assets/img/bg/newslater-bg.png)', backgroundRepeat: 'no-repeat', backgroundSize: 'contain' }}>
+        <section
+          className="newslater-area pt-120 pb-200"
+          style={{
+            backgroundColor: "rgba(0,110,47,255)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          }}
+        >
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xl-7 col-lg-7">
-                <div className="section-title newslater-title">
+                <div
+                  className="section-title newslater-title wow fadeInDown  animated"
+                  data-animation="fadeInDown"
+                  data-delay=".4s"
+                >
                   <div className="text">
-                    <h5>Newsletter</h5>
-                    <h2>Join Us &amp; Get Special Offers From Us</h2>
+                    <h5>Subscribe</h5>
+                    <h2>Join Us &amp; Get Upadate From Us</h2>
                   </div>
                 </div>
               </div>
               <div className="col-xl-5 col-lg-5">
-                <form name="ajax-form" id="contact-form4" action="#" method="post" className="contact-form newslater">
+                <form
+                  name="ajax-form"
+                  id="contact-form4"
+                  action="#"
+                  method="post"
+                  className="contact-form newslater wow fadeInDown  animated"
+                  data-animation="fadeInDown"
+                  data-delay=".4s"
+                >
                   <div className="form-group p-relative">
-                    <input className="form-control" id="email2" name="email" type="email" placeholder="Email Address..."  required />
-                    <button type="submit" className="btn btn-custom" id="send2">Subscribe Now</button>
+                    <input
+                      className="form-control"
+                      id="email2"
+                      name="email"
+                      type="email"
+                      placeholder="Email Address..."
+                      required
+                    />
+                    <button type="submit" className="btn btn-custom" id="send2">
+                      Subscribe Now
+                    </button>
                   </div>
-                  {/* /Form-email */}
                 </form>
               </div>
             </div>
@@ -166,9 +250,24 @@ const AboutUs = (() => {
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <div className="s-video-wrap" style={{ backgroundImage: 'url(../assets/img/bg/video-img2.png)' }}>
+                <div
+                  className="s-video-wrap"
+                  style={{
+                    backgroundImage: "url(../assets/img/bg/video-img2.png)",
+                  }}
+                >
                   <div className="s-video-content text-center">
-                    <h6><a href="https://www.youtube.com/watch?v=7e90gBu4pas" className="popup-video mb-50"><img src="../assets/img/bg/play-button2.png" alt="circle_right" /></a></h6>
+                    <h6>
+                      <a
+                        href="https://www.youtube.com/watch?v=7e90gBu4pas"
+                        className="popup-video mb-50"
+                      >
+                        <img
+                          src="../assets/img/bg/play-button2.png"
+                          alt="circle_right"
+                        />
+                      </a>
+                    </h6>
                   </div>
                 </div>
               </div>
@@ -176,7 +275,7 @@ const AboutUs = (() => {
           </div>
         </section>
         {/* video-area-end */}
-        <section className="team-area2 fix p-relative pt-120 ">
+        {/* <section className="team-area2 fix p-relative pt-120 ">
           <div className="container">
             <div className="row">
               <div className="col-lg-12 p-relative">
@@ -271,18 +370,17 @@ const AboutUs = (() => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* team-area-end */}
         {/* steps-area */}
-        <OurSteps/>
+        <OurSteps />
         {/* steps-area-end */}
         {/* brand-area */}
-        <Partners/>
+        <Partners />
         {/* brand-area-end */}
-        <Footer/>
+        <Footer />
       </main>
-
     </>
-  )
-})
-export default AboutUs
+  );
+};
+export default AboutUs;

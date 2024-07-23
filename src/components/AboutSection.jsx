@@ -18,10 +18,10 @@ const AboutSection=()=>{
                 </div>
                 <div className="col-lg-7 col-md-12 col-sm-12">
                   <div className="s-about-img p-relative  wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".4s">
-                    <img src="../assets/img/features/about_img_03.jpg" alt="img" />
-                    <div className="about-text second-about">
+                    <img src="../assets/img/features/about_img_03.jpg" alt="img" className="w-full"/>
+                    {/* <div className="about-text second-about">
                       <img src="../assets/img/features/about-play.png" alt="img" />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

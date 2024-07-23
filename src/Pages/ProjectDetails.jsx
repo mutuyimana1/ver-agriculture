@@ -1,9 +1,12 @@
+import DOMPurify from "dompurify";
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import { Base_url } from "../Services/Constants"
 
 const ProjectDetail = ((props) => {
-  console.log("propssss data",props?.data)
+  const createMarkup = (html) => {
+    return { __html: DOMPurify.sanitize(html) };
+  };
     return (
         <>
          <main>
@@ -22,7 +25,8 @@ const ProjectDetail = ((props) => {
                   </div>
                 </div>
               </div>
-              <p className="pt-5"> {props?.data?.descriptions} </p>
+              <div dangerouslySetInnerHTML={createMarkup(props?.data?.descriptions)}/>
+              {/* <p className="pt-5"> {props?.data?.descriptions} </p> */}
             </div>
           </div>
         </div>

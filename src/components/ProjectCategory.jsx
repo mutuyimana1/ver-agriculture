@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Base_url } from "../Services/Constants";
 
-const ProjectCategory=()=>{
+const ProjectCategory=(props)=>{
     const [projectData, setProjectsData] = useState(null);
     const [agricultureData, setAgricultureData] = useState(null);
     const [erosionData, setErosionData] = useState(null);
@@ -133,8 +134,12 @@ const ProjectCategory=()=>{
         setAgricultureData(data);
       });
     }, []);
-  
-    console.log("AgricultureData from home", agricultureData);
+ 
+    const handleShowProjectDetails = (data) => {
+      props?.setDetailedData(data)
+      props?.setProjectsDetails(true); 
+      console.log("AgricultureData from home", data);
+    };
     return(
         <>
         <section id="portfolio" className="pt-120 pb-90">
@@ -165,12 +170,14 @@ const ProjectCategory=()=>{
                 </div>
                 {projectCategory === "all" && <div className="row">
                   {projectData?.slice(0, 3)?.map((el) => {
+                    console.log("Base_url}/assets/${el?.image?.id}",`${Base_url}/assets/${el?.image?.id}`)
                     return (
                       <>
-                        <div className="col-lg-4 col-md-6">
+                           
+                            <div className="col-lg-4 col-md-6 cursor-pointer"  onClick={() => handleShowProjectDetails(el)}>
                           <div className="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
-                            <div className="blog-thumb2 w-full h-[20rem] overflow-hidden">
-                              <a href="#"><img src="../assets/img/blog/blog7.jpg" alt="img" className="w-full h-full"/></a>
+                            <div className="blog-thumb2 w-full h-[20rem] overflow-hidden shadow-md">
+                              <a href="#"><img src={`${Base_url}/assets/${el?.image?.id}`} alt="img" className="w-full h-full"/></a>
                             </div>
                             <div className="blog-content2 w-full">
                               <div className="date-home">
@@ -198,10 +205,10 @@ const ProjectCategory=()=>{
                   {erosionData?.slice(0, 3)?.map((el) => {
                     return (
                       <>
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6 cursor-pointer" onClick={() => handleShowProjectDetails(el)}>
                           <div className="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                             <div className="blog-thumb2 w-full h-[20rem] overflow-hidden">
-                            <img src="../assets/img/blog/blog7.jpg" alt="img" className="w-full h-full"/>
+                            <img src={`${Base_url}/assets/${el?.image}`} alt="img" className="w-full h-full"/>
                             </div>
                             <div className="blog-content2 w-full">
                               <div className="date-home">
@@ -229,10 +236,10 @@ const ProjectCategory=()=>{
                   {agricultureData?.slice(0, 3)?.map((el) => {
                     return (
                       <>
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6 cursor-pointer" onClick={() => handleShowProjectDetails(el)}>
                           <div className="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                             <div className="blog-thumb2 w-full h-[20rem] overflow-hidden">
-                              <a href="#"><img src="../assets/img/blog/blog7.jpg" alt="img" className="w-full h-full"/></a>
+                              <a href="#"><img src={`${Base_url}/assets/${el?.image}`} alt="img" className="w-full h-full"/></a>
                             </div>
                             <div className="blog-content2 w-full">
                               <div className="date-home">
@@ -260,10 +267,10 @@ const ProjectCategory=()=>{
                   {forestData?.slice(0, 3)?.map((el) => {
                     return (
                       <>
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6 cursor-pointer" onClick={() => handleShowProjectDetails(el)}>
                           <div className="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                             <div className="blog-thumb2 w-full h-[20rem] overflow-hidden">
-                             <img src="../assets/img/blog/blog7.jpg" alt="img" className="w-full h-full"/>
+                             <img src={`${Base_url}/assets/${el?.image}`} alt="img" className="w-full h-full"/>
                             </div>
                             <div className="blog-content2 w-full">
                               <div className="date-home">
@@ -291,10 +298,11 @@ const ProjectCategory=()=>{
                   {environmentData?.slice(0, 3)?.map((el) => {
                     return (
                       <>
-                        <div className="col-lg-4 col-md-6">
+                        <div className="col-lg-4 col-md-6 cursor-pointer" onClick={() => handleShowProjectDetails(el)}>
                           <div className="single-post2 hover-zoomin mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
                             <div className="blog-thumb2 w-full h-[20rem] overflow-hidden">
-                             <img src="../assets/img/blog/blog7.jpg" alt="img" className="w-full h-full"/>
+                            
+                             <img src={`${Base_url}/assets/${el?.image}`} alt="img" className="w-full h-full"/>
                             </div>
                             <div className="blog-content2 w-full">
                               <div className="date-home">
