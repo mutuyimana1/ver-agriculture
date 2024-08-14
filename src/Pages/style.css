@@ -36,9 +36,12 @@
     color: black !important;
   }
   .wysiwyg-content img {
-    width: 100%;
+    width: 80%;
     height: 40vh;
-    margin-top: 20px;
+    border-radius: 22px;
+    padding-top: 20px;
+    /* margin-top: 50px; */
+    margin:auto;
     background-color: transparent !important;
   }
   blockquote, .pages-content blockquote, .comment-list blockquote {
