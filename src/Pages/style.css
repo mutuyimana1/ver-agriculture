@@ -48,4 +48,9 @@
     background-color: transparent;
     color: black !important;
   }
-  
+  ol, ul, menu {
+    list-style: decimal;
+  }
+  li{
+    list-style: decimal;
+  }
